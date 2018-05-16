@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14105" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q84-sH-E6V">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Search Music Place View Controller-->
+        <scene sceneID="NGH-IB-Vve">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="SearchMusicPlaceVC" id="nkd-OF-oLh" customClass="SearchMusicPlaceViewController" customModule="SearchMusicPlace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PdX-hV-Pny">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="search here..." translatesAutoresizingMaskIntoConstraints="NO" id="AJp-Zy-duY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="PMo-fl-mOm"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.34901960780000002" green="0.57254901960000004" blue="0.81069559010000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nqZ-yn-Ucd">
+                                <rect key="frame" x="0.0" y="56" width="375" height="547"/>
+                            </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4Bx-Fb-Inz">
+                                <rect key="frame" x="169" y="283" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="Tgb-mH-yPC" firstAttribute="trailing" secondItem="nqZ-yn-Ucd" secondAttribute="trailing" id="0LN-Eh-Xvz"/>
+                            <constraint firstItem="nqZ-yn-Ucd" firstAttribute="leading" secondItem="Tgb-mH-yPC" secondAttribute="leading" id="5qb-so-6nz"/>
+                            <constraint firstItem="nqZ-yn-Ucd" firstAttribute="top" secondItem="AJp-Zy-duY" secondAttribute="bottom" id="8af-oH-HU6"/>
+                            <constraint firstItem="4Bx-Fb-Inz" firstAttribute="centerX" secondItem="PdX-hV-Pny" secondAttribute="centerX" id="B7v-vH-ibJ"/>
+                            <constraint firstItem="4Bx-Fb-Inz" firstAttribute="centerY" secondItem="PdX-hV-Pny" secondAttribute="centerY" id="CRz-SN-pXD"/>
+                            <constraint firstItem="AJp-Zy-duY" firstAttribute="leading" secondItem="Tgb-mH-yPC" secondAttribute="leading" id="EaE-MF-Q2U"/>
+                            <constraint firstItem="AJp-Zy-duY" firstAttribute="top" secondItem="PdX-hV-Pny" secondAttribute="top" id="GmF-hP-uCh"/>
+                            <constraint firstItem="Tgb-mH-yPC" firstAttribute="bottom" secondItem="nqZ-yn-Ucd" secondAttribute="bottom" id="NvU-Pb-55o"/>
+                            <constraint firstItem="AJp-Zy-duY" firstAttribute="trailing" secondItem="Tgb-mH-yPC" secondAttribute="trailing" id="vLI-s1-uDU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tgb-mH-yPC"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="Z7p-97-eul"/>
+                    <connections>
+                        <outlet property="loading" destination="4Bx-Fb-Inz" id="T00-52-bQl"/>
+                        <outlet property="mapView" destination="nqZ-yn-Ucd" id="SJY-2i-saF"/>
+                        <outlet property="searchBar" destination="AJp-Zy-duY" id="c8U-rs-OKV"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAb-rB-Ama" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1304.8" y="-579.76011994002999"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f5m-6K-8Jk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q84-sH-E6V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5qX-5X-sfm">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nkd-OF-oLh" kind="relationship" relationship="rootViewController" id="KIk-2u-Mh8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qpa-D1-lgl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365.60000000000002" y="-579.76011994002999"/>
         </scene>
     </scenes>
 </document>
