@@ -168,10 +168,7 @@ extension SearchMusicPlaceViewController:PaginSearchManagerDelegate{
             return
         }
          DispatchQueue.main.async {
-            
-            self.progressBar.isHidden=false
-            self.progressLabel.isHidden=false
-            
+
             let progress=reply.progress
             
             self.progressBar.progress=progress
@@ -269,6 +266,12 @@ extension SearchMusicPlaceViewController: UISearchBarDelegate {
             }
             
             self.loading.startAnimating()
+            
+            self.progressBar.progress=0
+            self.progressBar.isHidden=false
+            
+            self.progressLabel.text="0%"
+            self.progressLabel.isHidden=false
 
             //remove all pins from map view
             mapView.removeAnnotations(searchResult)
