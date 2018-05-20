@@ -23,11 +23,9 @@ struct Constants {
         static let lifeSpanFrom:Int=1990
         struct PinColor{
             
-            static let fiveSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 50.0/255, blue: 50.0/255, alpha: 1.0)
-            static let fourSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 127.0/255, blue: 127.0/255, alpha: 1.0)
-            static let threeSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 204.0/255, blue: 204.0/255, alpha: 1.0)
-            static let twoSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 239.0/255, blue: 239.0/255, alpha:1.0)
-            static let oneSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 248/255, blue: 248.0/255, alpha: 1.0)
+            static let threeSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 127.0/255, blue: 127.0/255, alpha: 1.0)
+            static let twoSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 204.0/255, blue: 204.0/255, alpha: 1.0)
+            static let oneSecondToDisappear:UIColor = UIColor(red: 255.0/255, green: 239.0/255, blue: 239.0/255, alpha:1.0)
             
         }
     }
