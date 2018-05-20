@@ -32,10 +32,26 @@
                                 <rect key="frame" x="169" y="283" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="0Ca-7F-tYC">
+                                <rect key="frame" x="265" y="83" width="100" height="2.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="p1R-gY-p2m"/>
+                                </constraints>
+                                <color key="progressTintColor" red="1" green="0.77418020099999996" blue="0.053793407670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ag-8j-kEJ">
+                                <rect key="frame" x="265" y="92" width="100" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Tgb-mH-yPC" firstAttribute="trailing" secondItem="nqZ-yn-Ucd" secondAttribute="trailing" id="0LN-Eh-Xvz"/>
+                            <constraint firstAttribute="trailing" secondItem="0Ca-7F-tYC" secondAttribute="trailing" constant="10" id="200-0q-OLp"/>
+                            <constraint firstItem="0Ca-7F-tYC" firstAttribute="top" secondItem="AJp-Zy-duY" secondAttribute="bottom" constant="27" id="5N0-Re-Hg0"/>
                             <constraint firstItem="nqZ-yn-Ucd" firstAttribute="leading" secondItem="Tgb-mH-yPC" secondAttribute="leading" id="5qb-so-6nz"/>
                             <constraint firstItem="nqZ-yn-Ucd" firstAttribute="top" secondItem="AJp-Zy-duY" secondAttribute="bottom" id="8af-oH-HU6"/>
                             <constraint firstItem="4Bx-Fb-Inz" firstAttribute="centerX" secondItem="PdX-hV-Pny" secondAttribute="centerX" id="B7v-vH-ibJ"/>
@@ -43,6 +59,9 @@
                             <constraint firstItem="AJp-Zy-duY" firstAttribute="leading" secondItem="Tgb-mH-yPC" secondAttribute="leading" id="EaE-MF-Q2U"/>
                             <constraint firstItem="AJp-Zy-duY" firstAttribute="top" secondItem="PdX-hV-Pny" secondAttribute="top" id="GmF-hP-uCh"/>
                             <constraint firstItem="Tgb-mH-yPC" firstAttribute="bottom" secondItem="nqZ-yn-Ucd" secondAttribute="bottom" id="NvU-Pb-55o"/>
+                            <constraint firstItem="0Ag-8j-kEJ" firstAttribute="top" secondItem="0Ca-7F-tYC" secondAttribute="bottom" constant="7" id="RGc-IG-zgV"/>
+                            <constraint firstItem="0Ag-8j-kEJ" firstAttribute="leading" secondItem="0Ca-7F-tYC" secondAttribute="leading" id="j45-PS-YXd"/>
+                            <constraint firstItem="0Ag-8j-kEJ" firstAttribute="trailing" secondItem="0Ca-7F-tYC" secondAttribute="trailing" id="uQy-Uk-98C"/>
                             <constraint firstItem="AJp-Zy-duY" firstAttribute="trailing" secondItem="Tgb-mH-yPC" secondAttribute="trailing" id="vLI-s1-uDU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tgb-mH-yPC"/>
@@ -52,6 +71,8 @@
                     <connections>
                         <outlet property="loading" destination="4Bx-Fb-Inz" id="T00-52-bQl"/>
                         <outlet property="mapView" destination="nqZ-yn-Ucd" id="SJY-2i-saF"/>
+                        <outlet property="progressBar" destination="0Ca-7F-tYC" id="YLN-Sv-tWH"/>
+                        <outlet property="progressLabel" destination="0Ag-8j-kEJ" id="9yU-at-XdG"/>
                         <outlet property="searchBar" destination="AJp-Zy-duY" id="c8U-rs-OKV"/>
                     </connections>
                 </viewController>
