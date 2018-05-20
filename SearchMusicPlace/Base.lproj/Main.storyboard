@@ -32,17 +32,19 @@
                                 <rect key="frame" x="169" y="283" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="0Ca-7F-tYC">
-                                <rect key="frame" x="265" y="83" width="100" height="2.5"/>
+                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0Ca-7F-tYC">
+                                <rect key="frame" x="265" y="83" width="100" height="11"/>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Qth-j6-WUZ"/>
                                     <constraint firstAttribute="width" constant="100" id="p1R-gY-p2m"/>
                                 </constraints>
                                 <color key="progressTintColor" red="1" green="0.77418020099999996" blue="0.053793407670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="trackTintColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ag-8j-kEJ">
-                                <rect key="frame" x="265" y="92" width="100" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="265" y="100" width="100" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
