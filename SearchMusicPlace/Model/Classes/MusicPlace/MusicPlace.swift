@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import Contacts
 
 class MusicPlace: NSObject, MKAnnotation {
     
@@ -25,18 +26,14 @@ class MusicPlace: NSObject, MKAnnotation {
     var markerTintColor: UIColor  {
         switch displyTime {
             
-        case 5:
-            return Constants.MusicPlace.PinColor.fiveSecondToDisappear
-        case 4:
-            return Constants.MusicPlace.PinColor.fourSecondToDisappear
-        case 3:
-            return Constants.MusicPlace.PinColor.threeSecondToDisappear
-        case 2:
-            return Constants.MusicPlace.PinColor.twoSecondToDisappear
-        case 1:
-            return Constants.MusicPlace.PinColor.oneSecondToDisappear
-        default:
-            return .red
+            case 3:
+                return Constants.MusicPlace.PinColor.threeSecondToDisappear
+            case 2:
+                return Constants.MusicPlace.PinColor.twoSecondToDisappear
+            case 1:
+                return Constants.MusicPlace.PinColor.oneSecondToDisappear
+            default:
+                return .red
         }
     }
     
@@ -69,7 +66,7 @@ class MusicPlace: NSObject, MKAnnotation {
     
     func isTimeToBlink()->Bool{
         
-        if displyTime<6{
+        if displyTime<4{
             
             return true
         }
@@ -79,6 +76,14 @@ class MusicPlace: NSObject, MKAnnotation {
     func deductDisplyTime(){
         
          displyTime -= 1
+    }
+    
+    func mapItem() -> MKMapItem {
+        let addressDict = [CNPostalAddressStreetKey: subtitle!]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = title
+        return mapItem
     }
     
 }
