@@ -10,6 +10,6 @@ import Foundation
 protocol PaginSearchManagerDelegate: class {
     
     /**The didRecieveDataUpdate delegate can be use in case we want to provide user with some progress information while a search is in progress. however I didnot call this delegate in PaginSearchManager class at all **/
-    func didRecieveDataUpdate(reply:PaginSearchManagerReply)
+    func didRecieveDataUpdate(reply:PaginSearchManagerProgressReply)
     func didFinishSearch(reply:PaginSearchManagerReply)
 }
