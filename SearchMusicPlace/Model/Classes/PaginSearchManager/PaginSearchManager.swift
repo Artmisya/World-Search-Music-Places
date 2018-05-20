@@ -93,6 +93,14 @@ class PaginSearchManager{
             else if let data=reply.data {
                 
                 self.updateSearchResults(data:data)
+                
+                // inform view controller about the progress
+                
+                let progress=self.getSearchProgress()
+                let reply=PaginSearchManagerProgressReply(progress: progress, searchQuery: searchQuery)
+                self.delegate?.didRecieveDataUpdate(reply: reply)
+                
+                
                 // check if there is more pages?
                 if (self.hasMorePage(data:data)){
                     
@@ -141,6 +149,22 @@ class PaginSearchManager{
             print( parseError.localizedDescription)
             return
         }
+        
+        // set the page numbers if it is not set yet
+        if (pageNumbers==0){
+            do {
+                let response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
+                if let count = response!["count"] as? Int {
+                    self.pageNumbers=count
+                    
+                }
+            }catch let parseError {
+                
+                print (parseError.localizedDescription)
+                
+            }
+        }
+        
         guard let placeList = response!["places"] as? [Any] else {
             
             print( Constants.ErrorMessage.jsonError)
@@ -177,6 +201,18 @@ class PaginSearchManager{
         }
         
     }
+    
+    private func getSearchProgress()-> Float{
+
+        if(pageNumbers==0){
+            
+            return 0
+        }
+        let progress=Float(currentOffset+1) / Float(pageNumbers)
+        print (">>progress",progress,pageNumbers)
+        return progress
+        
+    }
     private func searchMorePage(){
         
         currentOffset+=1
@@ -186,7 +222,7 @@ class PaginSearchManager{
             // inform view controler that the search is done with an error
             let error=NSError(domain: Constants.DomainError.httpError, code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.ErrorMessage.badUrl])
             let reply=PaginSearchManagerReply(data:searchResults, error: error, searchQuery: searchQueryInprogress)
-            self.delegate?.didRecieveDataUpdate(reply:reply)
+            self.delegate?.didFinishSearch(reply:reply)
             return
         }
         
@@ -203,20 +239,6 @@ class PaginSearchManager{
     
     private func hasMorePage(data:Data)->Bool{
         
-        // set the page numbers if it is not set yet
-        if (pageNumbers==0){
-            do {
-                let response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
-                if let count = response!["count"] as? Int {
-                    
-                    self.pageNumbers=count
-                }
-            }catch let parseError {
-                
-                print (parseError.localizedDescription)
-                return false
-            }
-        }
         if (pageNumbers-currentOffset>1){
             
             return true
