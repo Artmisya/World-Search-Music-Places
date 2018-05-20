@@ -24,19 +24,26 @@ class SearchMusicPlaceViewController: UIViewController {
     
     private let lifeSpanTimer = RepeatingTimer(timeInterval: 1)
     
-    var searchResult=[MusicPlace]()
-    let pagingSearchManager=PaginSearchManager()
-    var searchQueryInprogress:String=""
+    private var searchResult=[MusicPlace]()
+    private let pagingSearchManager=PaginSearchManager()
+    private var searchQueryInprogress:String=""
+    
+    
+    private var locationManager: CLLocationManager!
+    private var currentLocation: CLLocation?
+    
+    @IBOutlet var progressBar: UIProgressView!
+    @IBOutlet var progressLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpUi()
-        setUPViewControllerDelegates()
+        configureUi()
+        configureMap()
         configureSearchManager()
         
     }
-    private func setUpUi(){
+    private func configureUi(){
         
         self.title="Search Music Places"
         
@@ -46,21 +53,38 @@ class SearchMusicPlaceViewController: UIViewController {
         loading.isHidden=true
         loading.hidesWhenStopped=true
         
-        
-    }
-    private func setUPViewControllerDelegates(){
-        
-        pagingSearchManager.delegate = self
         searchBar.delegate=self
-        mapView.register(PlacePinView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
+        progressBar.isHidden=true
+        progressLabel.isHidden=true
+  
     }
     
     private func configureSearchManager(){
         
+        pagingSearchManager.delegate = self
         pagingSearchManager.pageLimit=20
         // set the Mode
         pagingSearchManager.mode=Constants.SearchManagerConfiguration.Mode.adaptive
+    }
+    
+    private func configureMap(){
+        
+        mapView.delegate=self
+        mapView.register(PlacePinView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        // Check for Location Services
+        
+        if CLLocationManager.locationServicesEnabled() {
+            
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+        
     }
     
     /**This function call a repeating GCD timer that runs on a background thread to update the pin's display time every one second
@@ -82,7 +106,7 @@ class SearchMusicPlaceViewController: UIViewController {
             // update alivePins array
             let timeOverPins=alivePins.filter{$0.isDisplayTimeOver()==true}
             alivePins=alivePins.filter{$0.isDisplayTimeOver()==false}
-            let fiveSecondtoVanishPins=alivePins.filter{$0.isTimeToBlink()==true}
+            let threeSecondtoVanishPins=alivePins.filter{$0.isTimeToBlink()==true}
             
             // update searchResult array and map view in the main thread
             DispatchQueue.main.async {
@@ -90,8 +114,8 @@ class SearchMusicPlaceViewController: UIViewController {
                 //remove pins that their display time is over
                 self.mapView.removeAnnotations(timeOverPins)
                  // remove and add back again the fiveSecondtoVanishPins in order to make their pin color update
-                self.mapView.removeAnnotations(fiveSecondtoVanishPins)
-                self.mapView.addAnnotations(fiveSecondtoVanishPins)
+                self.mapView.removeAnnotations(threeSecondtoVanishPins)
+                self.mapView.addAnnotations(threeSecondtoVanishPins)
                 
                 // update search result array with alive pins
                 self.searchResult=alivePins
@@ -107,7 +131,7 @@ class SearchMusicPlaceViewController: UIViewController {
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location,regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
-        
+   
     }
     
     private func cancelSearch(){
@@ -122,6 +146,12 @@ class SearchMusicPlaceViewController: UIViewController {
         
         self.loading.stopAnimating()
         
+        progressBar.progress=0
+        progressBar.isHidden=true
+        
+        progressLabel.text=""
+        progressLabel.isHidden=true
+ 
     }
     
 }
@@ -129,10 +159,22 @@ class SearchMusicPlaceViewController: UIViewController {
 // MARK:- PaginSearchManagerDelegate
 extension SearchMusicPlaceViewController:PaginSearchManagerDelegate{
     
-    /**This delegate can be use in case we want to provide user with some progress information while a search is in progress. however I didnot call this delegate in PaginSearchManager class at all **/
+    /**This delegate can be use in case we want to provide user with some progress information while a search is in progress **/
     
-    func didRecieveDataUpdate(reply:PaginSearchManagerReply){
+    func didRecieveDataUpdate(reply:PaginSearchManagerProgressReply){
         
+        if (reply.searchQuery != searchQueryInprogress){
+            
+            return
+        }
+         DispatchQueue.main.async {
+            
+            let progress=reply.progress
+            
+            self.progressBar.progress=progress
+            self.progressLabel.text="\(Int(progress*100) ) %"
+            
+        }
         
     }
     
@@ -151,6 +193,8 @@ extension SearchMusicPlaceViewController:PaginSearchManagerDelegate{
                 self.searchResult.removeAll()
                 self.searchBar.showsCancelButton=false
                 self.loading.stopAnimating()
+                self.progressBar.isHidden=true
+                self.progressLabel.isHidden=true
                 
                 let message=error.localizedDescription
                 let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -167,6 +211,8 @@ extension SearchMusicPlaceViewController:PaginSearchManagerDelegate{
                 
                 self.searchBar.showsCancelButton=false
                 self.loading.stopAnimating()
+                self.progressBar.isHidden=true
+                self.progressLabel.isHidden=true
                 
                 if (reply.data.count==0){
                     
@@ -220,6 +266,13 @@ extension SearchMusicPlaceViewController: UISearchBarDelegate {
             }
             
             self.loading.startAnimating()
+            
+            progressBar.progress=0
+            progressBar.isHidden=false
+            
+            progressLabel.text=""
+            progressLabel.isHidden=false
+            
 
             //remove all pins from map view
             mapView.removeAnnotations(searchResult)
@@ -245,6 +298,33 @@ extension SearchMusicPlaceViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         view.removeGestureRecognizer(tapRecognizer)
+    }
+}
+
+// MARK:- MKMapViewDelegate
+extension SearchMusicPlaceViewController:MKMapViewDelegate{
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+
+        let location = view.annotation as! MusicPlace
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
+}
+
+
+// MARK - CLLocationManagerDelegate
+extension SearchMusicPlaceViewController:CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        defer { currentLocation = locations.last }
+        
+        if currentLocation == nil {
+            // center map to user location
+            if let userLocation = locations.last {
+                mapView.setCenter(userLocation.coordinate, animated: true)
+            }
+        }
     }
 }
 
