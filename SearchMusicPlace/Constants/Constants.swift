@@ -60,4 +60,9 @@ struct Constants {
         static let httpError:String="HttpError"
         static let jsonError:String="jsonError"
     }
+    
+    struct ErrorCode {
+        
+        static let serviceNotAvaliable:Int=503
+    }
 }
