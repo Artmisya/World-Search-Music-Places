@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F948BBBD20B14B9400CB8171 /* PaginSearchManagerProgressReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948BBBC20B14B9400CB8171 /* PaginSearchManagerProgressReply.swift */; };
 		F9D2BE7020AC1669000A2E3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D2BE6F20AC1669000A2E3A /* AppDelegate.swift */; };
 		F9D2BE7520AC1669000A2E3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D2BE7320AC1669000A2E3A /* Main.storyboard */; };
 		F9D2BE7720AC166F000A2E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9D2BE7620AC166F000A2E3A /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F948BBBC20B14B9400CB8171 /* PaginSearchManagerProgressReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginSearchManagerProgressReply.swift; sourceTree = "<group>"; };
 		F9D2BE6C20AC1669000A2E3A /* SearchMusicPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchMusicPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D2BE6F20AC1669000A2E3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9D2BE7420AC1669000A2E3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				F9D2BEA620AC1847000A2E3A /* PaginSearchManager.swift */,
 				F9D2BEA820AC186D000A2E3A /* PaginSearchManagerDelegate.swift */,
 				F9D2BEAA20AC188E000A2E3A /* PaginSearchManagerReply.swift */,
+				F948BBBC20B14B9400CB8171 /* PaginSearchManagerProgressReply.swift */,
 			);
 			path = PaginSearchManager;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				F9D2BEA720AC1847000A2E3A /* PaginSearchManager.swift in Sources */,
 				F9D2BE9B20AC1760000A2E3A /* SearchMusicPlaceViewController.swift in Sources */,
 				F9D2BEA120AC17C6000A2E3A /* RepeatingTimer.swift in Sources */,
+				F948BBBD20B14B9400CB8171 /* PaginSearchManagerProgressReply.swift in Sources */,
 				F9D2BEAB20AC188E000A2E3A /* PaginSearchManagerReply.swift in Sources */,
 				F9D2BE9920AC172D000A2E3A /* NetworkServiceReply.swift in Sources */,
 			);
