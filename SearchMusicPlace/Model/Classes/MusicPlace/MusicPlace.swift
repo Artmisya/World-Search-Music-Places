@@ -16,6 +16,7 @@ class MusicPlace: NSObject, MKAnnotation {
     let locationName: String?
     var coordinate: CLLocationCoordinate2D
     private var displyTime:UInt
+    private let timeToBlink=3
     
     var subtitle: String? {
         return locationName
@@ -66,7 +67,7 @@ class MusicPlace: NSObject, MKAnnotation {
     
     func isTimeToBlink()->Bool{
         
-        if displyTime<4{
+        if displyTime<=timeToBlink{
             
             return true
         }
