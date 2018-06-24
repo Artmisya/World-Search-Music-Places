@@ -17,41 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danske" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYg-VC-5gc">
-                                <rect key="frame" x="133" y="323.5" width="57" height="20"/>
-                                <color key="backgroundColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmG-DH-eSX">
-                                <rect key="frame" x="201" y="322.5" width="40.5" height="23"/>
-                                <color key="backgroundColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfi-dI-3dI">
-                                <rect key="frame" x="202" y="323.5" width="38.5" height="21"/>
-                                <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Saeideh Sadat Javadi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzM-Pb-CNa">
-                                <rect key="frame" x="190" y="609" width="168" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Coding Challenge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nt-lL-i2O">
-                                <rect key="frame" x="113" y="368" width="150" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World Search Music Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nt-lL-i2O">
+                                <rect key="frame" x="99" y="324.5" width="178" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMI-Wq-HL9">
-                                <rect key="frame" x="286" y="636" width="72" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMI-Wq-HL9">
+                                <rect key="frame" x="286" y="636" width="75" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,20 +33,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="4Nt-lL-i2O" firstAttribute="centerY" secondItem="OdM-gE-VP2" secondAttribute="centerY" id="3hi-E4-HxR"/>
                             <constraint firstItem="4Nt-lL-i2O" firstAttribute="centerX" secondItem="OdM-gE-VP2" secondAttribute="centerX" id="3t8-Ga-jhd"/>
-                            <constraint firstItem="pfi-dI-3dI" firstAttribute="top" secondItem="tmG-DH-eSX" secondAttribute="top" constant="1" id="4zv-bR-C2J"/>
-                            <constraint firstItem="dqk-cq-cTe" firstAttribute="bottom" secondItem="vzM-Pb-CNa" secondAttribute="bottom" constant="37" id="8OM-Gs-Xtw"/>
-                            <constraint firstItem="OMI-Wq-HL9" firstAttribute="trailing" secondItem="vzM-Pb-CNa" secondAttribute="trailing" id="95c-Lk-m0k"/>
-                            <constraint firstItem="dqk-cq-cTe" firstAttribute="trailing" secondItem="vzM-Pb-CNa" secondAttribute="trailing" constant="17" id="9mk-qb-jEh"/>
-                            <constraint firstItem="OMI-Wq-HL9" firstAttribute="top" secondItem="vzM-Pb-CNa" secondAttribute="bottom" constant="6" id="B5u-1W-0Zq"/>
-                            <constraint firstItem="fYg-VC-5gc" firstAttribute="centerY" secondItem="OdM-gE-VP2" secondAttribute="centerY" id="QUh-FI-nbL"/>
-                            <constraint firstItem="pfi-dI-3dI" firstAttribute="leading" secondItem="tmG-DH-eSX" secondAttribute="leading" constant="1" id="Qzp-jH-39Q"/>
-                            <constraint firstItem="4Nt-lL-i2O" firstAttribute="top" secondItem="tmG-DH-eSX" secondAttribute="bottom" constant="22" id="VSI-8v-db9"/>
-                            <constraint firstItem="pfi-dI-3dI" firstAttribute="leading" secondItem="fYg-VC-5gc" secondAttribute="trailing" constant="12" id="ajS-5a-p7S"/>
-                            <constraint firstItem="pfi-dI-3dI" firstAttribute="top" secondItem="fYg-VC-5gc" secondAttribute="top" id="cUJ-Kp-KtX"/>
-                            <constraint firstItem="pfi-dI-3dI" firstAttribute="bottom" secondItem="tmG-DH-eSX" secondAttribute="bottom" constant="-1" id="fL8-lP-8qT"/>
-                            <constraint firstItem="4Nt-lL-i2O" firstAttribute="centerX" secondItem="fYg-VC-5gc" secondAttribute="centerX" constant="26" id="n4U-As-SPf"/>
-                            <constraint firstItem="pfi-dI-3dI" firstAttribute="trailing" secondItem="tmG-DH-eSX" secondAttribute="trailing" constant="-1" id="wKo-QL-GEn"/>
+                            <constraint firstItem="4Nt-lL-i2O" firstAttribute="centerX" secondItem="OdM-gE-VP2" secondAttribute="centerX" id="bDd-X3-RQg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dqk-cq-cTe"/>
                     </view>
