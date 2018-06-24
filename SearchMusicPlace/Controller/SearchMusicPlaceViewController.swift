@@ -262,7 +262,7 @@ extension SearchMusicPlaceViewController: UISearchBarDelegate {
             searchBar.showsCancelButton=true
             if let cancelButton : UIButton = searchBar.value(forKey: "_cancelButton") as? UIButton{
                 cancelButton.isEnabled = true
-                cancelButton.tintColor=UIColor.white
+                cancelButton.tintColor=UIColor.black
             }
             
             self.loading.startAnimating()
