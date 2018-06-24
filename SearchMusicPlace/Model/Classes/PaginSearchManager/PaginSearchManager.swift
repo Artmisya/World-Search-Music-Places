@@ -76,7 +76,7 @@ class PaginSearchManager{
                 print (">> received error",error.localizedDescription)
                 let code=(error as NSError).code
                 // this is a rate limit error, we need to slow down the request rate for the next 3 requests
-                if(code==503){
+                if(code==Constants.ErrorCode.serviceNotAvaliable){
                     
                     self.slowDownRequests=3
                     self.callNetworkServiceForAdaptiveMode(url: url)
