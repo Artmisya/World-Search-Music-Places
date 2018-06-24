@@ -22,7 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="PMo-fl-mOm"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.34901960780000002" green="0.57254901960000004" blue="0.81069559010000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="1" green="0.72734441620000001" blue="0.078148147350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nqZ-yn-Ucd">
@@ -90,7 +90,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5qX-5X-sfm">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.216373174" green="0.3557031068" blue="0.4999603426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.72734441620000001" blue="0.078148147350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
