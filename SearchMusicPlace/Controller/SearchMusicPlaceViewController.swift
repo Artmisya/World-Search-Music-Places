@@ -8,7 +8,9 @@
 
 import UIKit
 import MapKit
-//tesing Artemis 2
+//adding alert message
+//is done
+
 class SearchMusicPlaceViewController: UIViewController {
     
     @IBOutlet var loading: UIActivityIndicatorView!
