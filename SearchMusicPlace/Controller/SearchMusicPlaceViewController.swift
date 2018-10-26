@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 //tesing Artemis 2
-//friday 1_1
+//friday 1_2
 class SearchMusicPlaceViewController: UIViewController {
     
     @IBOutlet var loading: UIActivityIndicatorView!
